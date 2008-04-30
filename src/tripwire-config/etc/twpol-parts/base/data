@@ -1,0 +1,28 @@
+#$Log: data,v $
+#Revision 1.2  2005/10/15 04:51:11  phil
+#Add Tripwire to wordpress.
+#
+#Revision 1.1  2004/04/20 00:35:13  mjk
+#more pmp'n tripwire
+#
+#Revision 1.1  2004/04/07 21:20:28  phil
+#
+#Tripwire policy parts
+#
+  # NOTE: We remove the inode attribute because when Tripwire creates a backup,
+  # it does so by renaming the old file and creating a new one (which will
+  # have a new inode number).  Inode is left turned on for keys, which shouldn't
+  # ever change.
+
+  # NOTE: The first integrity check triggers this rule and each integrity check
+  # afterward triggers this rule until a database update is run, since the
+  # database file does not exist before that point.
+
+  $(TWDB)                              -> $(SEC_CONFIG) -i ;
+  $(TWPOL)/tw.pol                      -> $(SEC_BIN) -i ;
+  $(TWPOL)/tw.cfg                      -> $(SEC_BIN) -i ;
+  #$(TWLKEY)/$(HOSTNAME)-local.key      -> $(SEC_BIN) ;
+  $(TWSKEY)/site.key                   -> $(SEC_BIN) ;
+
+  #don't scan the individual reports
+  $(TWREPORT)                          -> $(SEC_CONFIG) (recurse=0) ;

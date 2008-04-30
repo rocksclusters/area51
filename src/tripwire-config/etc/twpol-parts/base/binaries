@@ -1,0 +1,13 @@
+# $Log: binaries,v $
+# Revision 1.1  2004/04/20 00:35:13  mjk
+# more pmp'n tripwire
+#
+# Revision 1.1  2004/04/07 21:20:28  phil
+#
+# Tripwire policy parts
+#
+# Tripwire binaries themselves
+  $(TWBIN)/siggen                      -> $(SEC_BIN) ;
+  $(TWBIN)/tripwire                    -> $(SEC_BIN) ;
+  $(TWBIN)/twadmin                     -> $(SEC_BIN) ;
+  $(TWBIN)/twprint                     -> $(SEC_BIN) ;

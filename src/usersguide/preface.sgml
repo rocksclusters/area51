@@ -1,0 +1,33 @@
+<preface id="preface" xreflabel="preface">
+<title>Preface</title>
+
+
+<para>
+
+The Rocks Area51 Roll contains utilities and services used to analyze the
+integrity of the files and the kernel on your cluster.
+
+</para>
+
+
+<para>
+
+The following software packages are included in the Area51 Roll:
+
+</para>
+
+
+<itemizedlist>
+
+<listitem><para>
+<ulink url="http://sourceforge.net/projects/tripwire/">Tripwire</ulink>
+</para></listitem>
+
+<listitem><para>
+<ulink url="http://www.chkrootkit.org/">chkrootkit</ulink>
+</para></listitem>
+
+</itemizedlist>
+
+
+</preface>

@@ -1,0 +1,21 @@
+#$Log: appinfo,v $
+#Revision 1.1  2005/10/17 03:00:10  phil
+#Make the Software do what the FAQ claims.
+#
+# Application Information Programs Addon #
+# Rolls should append to  the /opt/tripwire/etc/twpol-parts/addon/appinfo
+# to add new files/directories
+# 
+# an example entry might look like: (with # removed)
+# /opt/myapp   -> $(SEC_CRIT) (recurse = 1);
+#
+#
+#
+# a post section for a roll might look like
+# <post>
+# if [ ! -e /opt/tripwire/etc/twpol-parts/addon ]; then
+#	mkdir -p /opt/tripwire/etc/twpol-parts/addon
+# fi
+# <file name="/opt/tripwire/etc/twpol-parts/addon" mode="append">
+# 	/opt/myapp   -> $(SEC_CRIT) (recurse = 1);
+# </file>

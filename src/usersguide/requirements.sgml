@@ -1,0 +1,50 @@
+<chapter id="requirements" xreflabel="Requirements">
+
+
+<title>Requirements</title>
+
+<section id="rocks-version" xreflabel="Rocks Version">
+<title>Rocks Version</title>
+
+<para>
+
+The Area51 Roll is for use on x86 systems (e.g., Pentium and Athlon) and
+x86_64 (Opteron and EM64T)
+with Rocks version @VERSION@ (@VERSION_NAME@).
+
+</para>
+
+<para>
+The Area51 Roll is only installed on the frontend.
+</para>
+
+</section>
+
+
+<section id="other-rolls" xreflabel="Other Rolls">
+<title>Other Rolls</title>
+
+<para>
+
+The Area51 Roll is does not require any other Rolls (other than the HPC
+Roll) to be installed on the Frontend.
+Compatiblity has been verified with the following Rolls.
+
+</para>
+
+<itemizedlist>
+
+<listitem><para>HPC</para></listitem>
+<listitem><para>Grid</para></listitem>
+<listitem><para>Intel</para></listitem>
+<listitem><para>SGE</para></listitem>
+<listitem><para>Java</para></listitem>
+
+</itemizedlist>
+
+
+</section>
+
+
+</chapter>
+

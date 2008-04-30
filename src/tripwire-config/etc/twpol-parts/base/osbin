@@ -1,0 +1,10 @@
+# $Log: osbin,v $
+# Revision 1.1  2004/04/20 00:35:13  mjk
+# more pmp'n tripwire
+#
+# Revision 1.1  2004/04/08 05:27:40  phil
+# Build twpol.txt file from component parts
+#
+# Rest of critical system binaries
+     /bin                              -> $(SEC_BIN) ;
+     /lib                              -> $(SEC_BIN) ;

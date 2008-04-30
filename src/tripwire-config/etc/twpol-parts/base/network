@@ -1,0 +1,48 @@
+#$Log: network,v $
+#Revision 1.2  2005/10/14 05:48:43  phil
+#Clean up the checked for files to silence tripwire a bit
+#
+#Revision 1.1  2004/04/20 00:35:13  mjk
+#more pmp'n tripwire
+#
+#Revision 1.1  2004/04/07 21:20:28  phil
+#
+#Tripwire policy parts
+#
+# Networking Programs # #
+
+  /sbin/arp                            -> $(SEC_CRIT) ;
+  # /sbin/dhcpcd                         -> $(SEC_CRIT) ;
+  # /sbin/getty                          -> $(SEC_CRIT) ;
+  /sbin/ifcfg                          -> $(SEC_CRIT) ;
+  /sbin/ifconfig                       -> $(SEC_CRIT) ;
+  /sbin/ifdown                         -> $(SEC_CRIT) ;
+  /sbin/ifenslave                      -> $(SEC_CRIT) ;
+  #/sbin/ifport                         -> $(SEC_CRIT) ;
+  /sbin/ifup                           -> $(SEC_CRIT) ;
+  #/sbin/ifuser                         -> $(SEC_CRIT) ;
+  /sbin/ip                             -> $(SEC_CRIT) ;
+  # /sbin/ipchains                       -> $(SEC_CRIT) ;
+  # /sbin/ipchains-restore               -> $(SEC_CRIT) ;
+  # /sbin/ipchains-save                  -> $(SEC_CRIT) ;
+  #/sbin/ipfwadm                        -> $(SEC_CRIT) ;
+  /sbin/ipmaddr                        -> $(SEC_CRIT) ;
+  /sbin/iptables                       -> $(SEC_CRIT) ;
+  /sbin/iptunnel                       -> $(SEC_CRIT) ;
+  #/sbin/ipx_configure                  -> $(SEC_CRIT) ;
+  #/sbin/ipx_interface                  -> $(SEC_CRIT) ;
+  #/sbin/ipx_internal_net               -> $(SEC_CRIT) ;
+  /sbin/iwconfig                       -> $(SEC_CRIT) ;
+  /sbin/iwpriv                         -> $(SEC_CRIT) ;
+  /sbin/iwspy                          -> $(SEC_CRIT) ;
+  /sbin/netreport                      -> $(SEC_CRIT) ;
+  /sbin/plipconfig                     -> $(SEC_CRIT) ;
+  /sbin/portmap                        -> $(SEC_CRIT) ;
+  /sbin/ppp-watch                      -> $(SEC_CRIT) ;
+  # /sbin/rarp                           -> $(SEC_CRIT) ;
+  /sbin/route                          -> $(SEC_CRIT) ;
+  /sbin/slattach                       -> $(SEC_CRIT) ;
+  # /sbin/uugetty                        -> $(SEC_CRIT) ;
+  # /sbin/vgetty                         -> $(SEC_CRIT) ;
+  # /sbin/ypbind                         -> $(SEC_CRIT) ;
+  /bin/ping                            -> $(SEC_CRIT) ;

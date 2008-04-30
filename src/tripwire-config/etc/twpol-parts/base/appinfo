@@ -1,0 +1,15 @@
+#$Log: appinfo,v $
+#Revision 1.2  2005/10/14 05:48:43  phil
+#Clean up the checked for files to silence tripwire a bit
+#
+#Revision 1.1  2004/04/20 00:35:13  mjk
+#more pmp'n tripwire
+#
+#Revision 1.1  2004/04/08 05:27:40  phil
+#Build twpol.txt file from component parts
+#
+# Application Information Programs # #
+
+  #/sbin/genksyms                       -> $(SEC_CRIT) ;
+  /sbin/rtmon                          -> $(SEC_CRIT) ;
+  /sbin/sln                            -> $(SEC_CRIT) ;

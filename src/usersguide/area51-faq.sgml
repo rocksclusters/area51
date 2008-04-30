@@ -1,0 +1,275 @@
+<chapter id="faq_area51" xreflabel="Frequently Asked Questions for Area51 Roll">
+<title>FAQ</title>
+<qandaset defaultlabel="number">
+
+
+<qandaentry>
+<question id="Email">
+<para>
+How do I change the email addresses that receive the daily Tripwire report?
+</para>
+</question>
+<answer>
+<para>
+To have tripwire email its report to a different email address. Simply
+run the <computeroutput>
+/opt/tripwire/etc/tw-email-to -set address1 [address2]</computeroutput>.
+For example, say you want to email the tripwire reports to go to
+<computeroutput>wopr@wargames.org</computeroutput> and 
+<computeroutput>root</computeroutput>.
+</para>
+
+<screen>
+/opt/tripwire/etc/tw-email-to -set wopr@wargames.org root@`hostname`
+</screen>
+
+<para>
+To view the set of addresses for the Tripwire Daily Report
+</para>
+
+<screen>
+/opt/tripwire/etc/tw-email-to
+</screen>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="Tripwire_MD5">
+<para>
+The MD5 Sums for My Policy/Config/Tripwire Executable Files at Installation
+are different than what my Latest Report tells me. How could this happen?
+</para>
+</question>
+<answer>
+<para>
+Rocks calculates MD5s Policy, Config, and Tripwire files after it initializes.
+If you have knowingly changed any of these, then the difference is OK.
+These might have changed  if you reinitialized Tripwire interactively or
+in batch mode after initial installation. If you
+have NOT knowingly changed any of these items, then your computer may be
+at risk. Be very suspect of the Tripwire executable whose MD5 Sum has changed.
+</para>
+</answer>
+</qandaentry>
+
+
+
+<qandaentry>
+<question id="Tripwire_Many_MD5s">
+<para>
+My Tripwire Report is suddenly many megabytes. What happened?
+</para>
+</question>
+<answer>
+<para>
+Newer versions of Enterprise Linux run a utility called 
+<computeroutput>prelink</computeroutput>.  Prelink is an optimization that 
+modifies ELF binaries and shared libraries to speed up loading.  Prelink is usually run as a cron job by the system. The Rocks Tripwire configuration runs 
+this cron job before is creates its database. However, prelink may decide to relink already prelinked libraries. It is reasonable to use rpm to reverify all
+installed RPMS
+<screen>
+# rpm -qa --verify
+</screen>
+RPM is prelink-aware where Tripwire is not. If RPM reports very many fewer errors than Tripwire, then likely prelink ran and relinked. You should reinitialize tripwire.
+</para>
+</answer>
+</qandaentry>
+
+
+
+<qandaentry>
+<question id="Tripwire_Compile">
+<para>
+Is tripwire compiled statically?
+</para>
+</question>
+<answer>
+<para>
+Yes. Ideally the tripwire executable should be on a physically read-only
+file system. This is not very practical. Compiling statically guards against
+changed shared libraries. 
+</para>
+</answer>
+</qandaentry>
+
+
+<qandaentry>
+<question id="Tripwire_Version">
+<para>
+What version of Tripwire is Used.
+</para>
+</question>
+<answer>
+<para>
+Rocks uses the open source Tripwire for Linux Version 2.3.1-2 with
+community supplied patches to enable it to compile on the most recent
+version of kernel/c-libraries. Currently only and x86 version is compiled.
+This version will run properly on x86_64 hosts also.
+</para>
+</answer>
+</qandaentry>
+
+
+
+<qandaentry>
+<question id="More_on_Tripwire">
+<para>
+How do I find out more about Tripwire and how it works?
+</para>
+</question>
+
+<answer>
+<para>
+<ulink url="http://sourceforge.net/projects/tripwire">
+Sourceforge Tripwire Homepage</ulink> is a good starting point.
+</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="Update">
+<para>
+I've checked all the problems that my Tripwire Report has flagged. How do I
+clear these for the next report?
+</para>
+</question>
+
+<answer>
+<para>
+As root, you need to re-initialize the Tripwire database. The Tripwire
+database is signed with a randomly generated key and the MD5 sum of this
+signature is reported each time the report runs. These MD5 sums should not
+change unless you re-initialize. To clear the flagged problems do
+</para>
+<screen>
+# cd /opt/tripwire/etc
+# make initialize-batch
+</screen>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="Database_Password">
+<para>
+What is the password for the database so that I can selectively update Tripwire entries?
+</para>
+</question>
+
+<answer>
+<para>
+The default setup generates a random password for signing and then throws it
+away. Selective update requires an interactive initializion.
+</para>
+</answer>
+</qandaentry>
+
+
+<qandaentry>
+<question id="Interactive">
+<para>
+How do I setup Tripwire so that I can selectively update entries?
+</para>
+</question>
+
+<answer>
+<para>
+As root, you need to re-initialize the Tripwire database interactively
+with your self-selected site and local passphrases. 
+You will first need to delete your site key
+and host keys then create a new one. Do the following and follow the on-screen
+directions. 
+</para>
+<screen>
+# cd /opt/tripwire/etc
+# /bin/rm *.key
+# make initialize-interactive
+# make check
+</screen>
+<para>
+Once you have initialized the database. Future Tripwire warnings can be 
+addressed interactively with the following 
+</para>
+<screen>
+# cd /opt/tripwire/etc
+# make update 
+</screen>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="Add_Files_to_be_Checked">
+<para>
+How do I add Files/Directories for Tripwire to Check? 
+</para>
+</question>
+
+<answer>
+<para>
+The Tripwire Policy file 
+(<computeroutput>/opt/tripwire/etc/twpol.txt</computeroutput>)
+is a monolithic text file that defines the files/directories to be 
+Checked. Rocks builds this file in pieces from component files located in
+the directory <computeroutput>/opt/tripwire/etc/twpol-parts</computeroutput>. 
+The Area51 roll creates files in the subdirectory 
+<computeroutput>/opt/tripwire/etc/twpol-parts/base</computeroutput>. 
+The 
+<computeroutput>/opt/tripwire/etc/twpol-parts/addon</computeroutput>
+is where you should put new rules using the identical names of files
+in the base directory. You should the files in the base directory as a guide.
+Once you have added the files to watch you need to rebuild the tripwire
+database.
+</para>
+<para>
+If you are using that basic setup provided by Rocks, then  
+</para>
+<screen>
+# cd /opt/tripwire/etc
+# make initialize-batch
+</screen>
+<para>
+If you have interactively setup Tripwire. Then  
+</para>
+<screen>
+# cd /opt/tripwire/etc
+# make updatedb
+</screen>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="Tripwire_Rolls">
+<para>
+How should rolls add files for Tripwire to watch?
+</para>
+</question>
+<answer>
+<para>
+Rolls to should append to files in 
+<computeroutput>/opt/tripwire/etc/twpol-parts/addon</computeroutput>
+using the files in 
+<computeroutput>/opt/tripwire/etc/twpol-parts/base</computeroutput>
+as a template. For example, if an application Roll creates the directory
+<computeroutput>/opt/myapp</computeroutput> then it would be appropriate
+to add the following to 
+<computeroutput>/opt/tripwire/etc/twpol-parts/base/appinfo</computeroutput>
+in post configuration section for your roll.
+<screen>
+&lt;post&gt;
+&lt;file name="/opt/tripwire/etc/twpol-parts/base/appinfo" mode="append"&gt;
+/opt/myapp  -&gt; $(SEC_CRIT) (recurse = 1) ;
+&lt;/file&gt;
+&lt;/post&gt;
+</screen>
+</para>
+<para>
+<caution>
+<para>
+Tripwire requires pathnames to be absolute pathnames
+</para>
+</caution>
+</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

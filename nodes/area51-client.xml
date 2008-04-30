@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+
+<kickstart>
+
+	<description>
+
+	Area 51 for compute nodes
+
+	</description>
+
+	<changelog>
+	$Log: area51-client.xml,v $
+	Revision 1.2  2005/03/04 01:40:04  mjk
+	massive graph cleanup
+	
+	Revision 1.1  2004/04/29 01:08:25  mjk
+	added graph
+	
+	</changelog>
+
+<post>
+
+
+</post>
+
+</kickstart> 
+

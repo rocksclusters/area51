@@ -1,0 +1,44 @@
+# $Log: globals.in,v $
+# Revision 1.2  2008/04/15 23:21:22  bruno
+# update policy files
+#
+# Revision 1.1  2004/04/20 00:35:12  mjk
+# more pmp'n tripwire
+#
+# Revision 1.2  2004/04/12 15:28:27  phil
+# Small syntax errors. Also Tripwire doesn't understand macro macros
+#
+# Revision 1.1  2004/04/12 06:05:29  phil
+#
+# Config and Tripwire RPM now build properly. Need to adjust permissions
+# and create cron files.
+#
+# Revision 1.2  2004/04/09 06:50:06  phil
+# Closer to a configuration setup for tripwire
+#
+# Revision 1.1  2004/04/08 05:27:39  phil
+# Build twpol.txt file from component parts
+#
+  ##############################################################################
+ #                                                                            ##
+############################################################################## #
+#                                                                            # #
+# Global Variable Definitions                                                # #
+#                                                                            # #
+# These are defined at install time by the installation script.  You may     # #
+# Manually edit these if you are using this file directly and not from the   # #
+# installation script itself.                                                # #
+#                                                                            ##
+##############################################################################
+
+@@section GLOBAL
+TWOPTDIR=@TWOPTDIR@;
+TWCONFIGDIR=@TWCONFIGDIR@;
+TWPOL=@TWCONFIGDIR@;
+TWSKEY=@TWCONFIGDIR@;
+TWLKEY=@TWCONFIGDIR@;
+TWDOCS=@TWOPTDIR@/doc;
+TWBIN=@TWOPTDIR@/sbin;
+TWDB=@TWOPTDIR@/db;
+TWREPORT=@TWOPTDIR@/db/report;
+#HOSTNAME=@HOSTNAME@

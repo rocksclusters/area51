@@ -1,0 +1,45 @@
+#$Log: root-home,v $
+#Revision 1.2  2005/10/14 05:48:43  phil
+#Clean up the checked for files to silence tripwire a bit
+#
+#Revision 1.1  2004/04/20 00:35:13  mjk
+#more pmp'n tripwire
+#
+#Revision 1.2  2004/04/15 06:21:11  phil
+#Tripwire now compiles under GCC3 -- compat libs no longer needed
+#
+#Revision 1.1  2004/04/08 05:27:40  phil
+#Build twpol.txt file from component parts
+#
+# These files change the behavior of the root account
+     /root                             -> $(SEC_CRIT) -m ; # Catch all additions to /root
+							# some file changes are OK
+     # /root/mail                        -> $(SEC_CONFIG) ;
+     #/root/Mail                        -> $(SEC_CONFIG) ;
+     #/root/.xsession-errors            -> $(SEC_CONFIG) ;
+     #/root/.xauth                      -> $(SEC_CONFIG) ;
+     #/root/.tcshrc                     -> $(SEC_CONFIG) ;
+     #/root/.sawfish                    -> $(SEC_CONFIG) ;
+     #/root/.pinerc                     -> $(SEC_CONFIG) ;
+     #/root/.mc                         -> $(SEC_CONFIG) ;
+     #/root/.gnome_private              -> $(SEC_CONFIG) ;
+     #/root/.gnome-desktop              -> $(SEC_CONFIG) ;
+     #/root/.gnome                      -> $(SEC_CONFIG) ;
+     #/root/.esd_auth                   -> $(SEC_CONFIG) ;
+     #/root/.elm                        -> $(SEC_CONFIG) ;
+     #/root/.cshrc                      -> $(SEC_CONFIG) ;
+     !/root/.viminfo			;	
+     /root/.bashrc                     -> $(SEC_CONFIG) ;
+     /root/.bash_profile               -> $(SEC_CONFIG) ;
+     /root/.bash_logout                -> $(SEC_CONFIG) ;
+     /root/.bash_history               -> $(SEC_CONFIG) ;
+    /root/.ssh                -> $(SEC_CONFIG) ;
+    /root/.ssh/authorized_keys                -> $(SEC_CONFIG) ;
+    /root/.ssh/id_rsa                -> $(SEC_CONFIG) ;
+    /root/.ssh/id_rsa.pub                -> $(SEC_CONFIG) ;
+    # /root/.amandahosts                -> $(SEC_CONFIG) ;
+    # /root/.addressbook.lu             -> $(SEC_CONFIG) ;
+    # /root/.addressbook                -> $(SEC_CONFIG) ;
+    # /root/.Xresources                 -> $(SEC_CONFIG) ;
+    # /root/.Xauthority                 -> $(SEC_CONFIG) -i ; # Changes Inode number on login
+    # /root/.ICEauthority               -> $(SEC_CONFIG) ;

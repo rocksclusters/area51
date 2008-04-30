@@ -1,0 +1,26 @@
+# $Log $
+# Critical devices # #
+     /dev/mem                          -> $(Device) ;
+     /dev/null                         -> $(Device) ;
+     /dev/zero                         -> $(Device) ;
+     /proc/devices                     -> $(Device) ;
+     /proc/sys                         -> $(Device) ;
+     /proc/cpuinfo                     -> $(Device) ;
+     /proc/modules                     -> $(Device) ;
+     /proc/mounts                      -> $(Device) ;
+     /proc/dma                         -> $(Device) ;
+     /proc/filesystems                 -> $(Device) ;
+     /proc/interrupts                  -> $(Device) ;
+     /proc/ioports                     -> $(Device) ;
+     /proc/kcore                       -> $(Device) ;
+     /proc/self                        -> $(Device) ;
+     /proc/kmsg                        -> $(Device) ;
+     /proc/stat                        -> $(Device) ;
+     /proc/loadavg                     -> $(Device) ;
+     /proc/uptime                      -> $(Device) ;
+     /proc/locks                       -> $(Device) ;
+     /proc/version                     -> $(Device) ;
+     /proc/mdstat                      -> $(Device) ;
+     /proc/meminfo                     -> $(Device) ;
+     /proc/cmdline                     -> $(Device) ;
+     /proc/misc                        -> $(Device) ;

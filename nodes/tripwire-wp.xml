@@ -1,0 +1,44 @@
+<?xml version="1.0" standalone="no" ?>
+
+<kickstart>
+
+<description>
+Link to the Tripwire status page on the frontend's web site
+</description>
+
+<changelog>
+$Log: tripwire-wp.xml,v $
+Revision 1.2  2005/10/18 00:28:30  bruno
+tune the web site
+
+Revision 1.1  2005/10/15 04:51:11  phil
+Add Tripwire to wordpress.
+
+</changelog>
+
+<post>
+
+<file name="/tmp/tripwire-wp.sql">
+insert into wp_links (link_name, link_url, link_category)
+	values ('Tripwire',
+	'/tripwire/',
+	2);
+</file>
+
+cat /tmp/tripwire-wp.sql | mysql -u wordpress wordpress
+rm -f /tmp/tripwire-wp.sql
+mkdir -p /var/www/html/tripwire
+<file name="/var/www/html/tripwire/index.html" owner="root.apache">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta HTTP-EQUIV="Content-Type" Content="text-html"&gt;
+&lt;title&gt;Tripwire Report Not Available&lt;/title&gt;
+&lt;/head&gt;
+No Tripwire Reports are available for this machine.
+&lt;/hmtl&gt;
+</file>
+</post>
+
+</kickstart>
+

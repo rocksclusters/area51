@@ -1,0 +1,71 @@
+#$Log: admin,v $
+#Revision 1.3  2005/10/15 04:51:11  phil
+#Add Tripwire to wordpress.
+#
+#Revision 1.2  2005/10/14 05:48:43  phil
+#Clean up the checked for files to silence tripwire a bit
+#
+#Revision 1.1  2004/04/20 00:35:13  mjk
+#more pmp'n tripwire
+#
+#Revision 1.1  2004/04/07 21:20:28  phil
+#
+#Tripwire policy parts
+#
+# File System and Disk Administration programs
+
+  /sbin/accton                         -> $(SEC_CRIT) ;
+  /sbin/badblocks                      -> $(SEC_CRIT) ;
+  /sbin/dosfsck                        -> $(SEC_CRIT) ;
+  /sbin/e2fsck                         -> $(SEC_CRIT) ;
+  /sbin/debugfs                        -> $(SEC_CRIT) ;
+  /sbin/dumpe2fs                       -> $(SEC_CRIT) ;
+  /sbin/dump                           -> $(SEC_CRIT) ;
+  /sbin/dump.static                    -> $(SEC_CRIT) ;
+  /sbin/e2label                        -> $(SEC_CRIT) ;
+  /sbin/fdisk                          -> $(SEC_CRIT) ;
+  /sbin/fsck                           -> $(SEC_CRIT) ;
+  /sbin/fsck.ext2                      -> $(SEC_CRIT) ;
+  #/sbin/fsck.minix                     -> $(SEC_CRIT) ;
+  /sbin/fsck.msdos                     -> $(SEC_CRIT) ;
+  #/sbin/ftl_check                      -> $(SEC_CRIT) ;
+  #/sbin/ftl_format                     -> $(SEC_CRIT) ;
+  /sbin/hdparm                         -> $(SEC_CRIT) ;
+  #/sbin/mkbootdisk                     -> $(SEC_CRIT) ;
+  /sbin/mkdosfs                        -> $(SEC_CRIT) ;
+  /sbin/mke2fs                         -> $(SEC_CRIT) ;
+  /sbin/mkfs                           -> $(SEC_CRIT) ;
+  /sbin/mkfs.ext2                      -> $(SEC_CRIT) ;
+  # /sbin/mkfs.minix                     -> $(SEC_CRIT) ;
+  /sbin/mkfs.msdos                     -> $(SEC_CRIT) ;
+  /sbin/mkinitrd                       -> $(SEC_CRIT) ;
+  # /sbin/mkpv                           -> $(SEC_CRIT) ;
+  #/sbin/mkraid                         -> $(SEC_CRIT) ;
+  /sbin/mkswap                         -> $(SEC_CRIT) ;
+  # /sbin/mtx                            -> $(SEC_CRIT) ;
+  /sbin/parted                         -> $(SEC_CRIT) ;
+  #/sbin/pcinitrd                       -> $(SEC_CRIT) ;
+  /sbin/quotacheck                     -> $(SEC_CRIT) ;
+  /sbin/quotaon                        -> $(SEC_CRIT) ;
+  #/sbin/raidstart                      -> $(SEC_CRIT) ;
+  /sbin/resize2fs                      -> $(SEC_CRIT) ;
+  /sbin/restore                        -> $(SEC_CRIT) ;
+  /sbin/restore.static                 -> $(SEC_CRIT) ;
+  #/sbin/scsi_info                      -> $(SEC_CRIT) ;
+  /sbin/sfdisk                         -> $(SEC_CRIT) ;
+  # /sbin/tapeinfo                       -> $(SEC_CRIT) ;
+  /sbin/tune2fs                        -> $(SEC_CRIT) ;
+  # /sbin/update                         -> $(SEC_CRIT) ;
+  /bin/mount                           -> $(SEC_CRIT) ;
+  /bin/umount                          -> $(SEC_CRIT) ;
+  /bin/touch                           -> $(SEC_CRIT) ;
+  /bin/mkdir                           -> $(SEC_CRIT) ;
+  /bin/mknod                           -> $(SEC_CRIT) ;
+  /bin/mktemp                          -> $(SEC_CRIT) ;
+  /bin/rm                              -> $(SEC_CRIT) ;
+  /bin/rmdir                           -> $(SEC_CRIT) ;
+  /bin/chgrp                           -> $(SEC_CRIT) ;
+  /bin/chmod                           -> $(SEC_CRIT) ;
+  /bin/chown                           -> $(SEC_CRIT) ;
+  /bin/cp                              -> $(SEC_CRIT) ;
+  /bin/cpio                            -> $(SEC_CRIT) ;

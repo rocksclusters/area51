@@ -1,0 +1,13 @@
+#$Log: invariants,v $
+#Revision 1.1  2004/04/20 00:35:13  mjk
+#more pmp'n tripwire
+#
+#Revision 1.1  2004/04/08 05:27:40  phil
+#Build twpol.txt file from component parts
+#
+# Commonly accessed directories that should remain static with regards 
+# to owner and group
+
+  /                                    -> $(SEC_INVARIANT) (recurse = 0) ;
+  /export/home                         -> $(SEC_INVARIANT) (recurse = 0) ;
+  /etc                                 -> $(SEC_INVARIANT) (recurse = 0) ;

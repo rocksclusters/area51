@@ -1,0 +1,93 @@
+---- $Log: README,v $
+---- Revision 1.1  2004/04/20 00:35:12  mjk
+---- more pmp'n tripwire
+----
+---- Revision 1.3  2004/04/12 17:48:12  phil
+----
+---- Added check and print-report targets for Makefile
+----
+---- Revision 1.2  2004/04/12 06:05:28  phil
+----
+---- Config and Tripwire RPM now build properly. Need to adjust permissions
+---- and create cron files.
+----
+---- Revision 1.1  2004/04/10 00:26:04  phil
+----
+---- Almost completed
+----
+This is the config directory for Rocks-based Tripwire Configuration.
+This directory structure is defined in the tripwire-config rpm.
+Although, part of Rocks, these rpms are designed to stand alone.
+However, Rocks-based configuration adds significantly more system
+converage for add-on components. 
+
+USAGE 
+ 	make [initialize-interactive,initialize-batch,policy,update,updatedb,check,print-report]
+
+EXAMPLES
+	make initialize-interactive
+	make update
+
+DETAILS
+The Makefile has several main targets
+ -- initialize-interactive
+ -- initialize-batch
+ -- policy 
+ -- updatedb
+ -- update
+ -- check
+ -- print-report
+
+1) initialize-interactive
+This will create the twpol.txt file.
+This will prompt you to create a site key and a local key. These can 
+be the same or different passphrases. You should remember the passphrase
+to initialize the tripwire database or to update the tripwire database.
+
+2) initialize-batch
+This will create the twpol.txt file.
+This will create random passwords (using /dev/random) for both the site-key
+and local-key. These keys are used to initialize the tripwire database.
+In this mode the passwords are neither recorded nor displayed making it
+impossible to update the tripwire database. One can only reinitialize the
+database from scratch
+
+3) policy 
+This will create the twpol.txt file. The policy file, 
+which controls what tripwire
+actually monitors, is composed of about fifteen different sections. The
+individual files are located in twpol-parts. The file twpol-parts/twpol-outline
+gives a high-level outline of the configuration file. The files in 
+twpol-parts/base define the baseline tripwire policy. Additional files
+should be added in files located in twpol-parts/addon instead of the base
+directory. Files cannot be taken out of the default policy without editing
+files in base. Please refer to the files in twpol-parts/base for examples
+and to the tripwire man pages
+
+5) update
+When valid changes have been made to the monitored files, and no changes have
+are needed to the policy file itself, the Tripwire database can be updated
+with new file information. This can be done only in interactive mode
+and requires the local tripwire database password.
+
+Tripwire will show you the particular report using the default text editor (specified in the Tripwire configuration file on the EDITOR line). This is your chance to deselect files that you do not wish to be updated in the Tripwire database. It is important that you only allow authorized integrity violations to be changed in the database. 
+
+All proposed updates to the Tripwire database start with a [x] before the file name. If you want to specifically exclude a valid violation from being added to the Tripwire database, remove the x from the box. To accept any files with an x beside them as changes, write the file in the editor and quit the text editor. This signals to Tripwire to alter its database and not report these files as violations. 
+
+
+5) updatedb
+This will create the twpol.txt file and then recreate the local database.
+This can only be done in interactive mode as the known password to the
+local site (created in initialize-interactive) must be provided. If initialize-batch is used, then the only way to create an "updated" policy is to 
+reinitialize.
+
+6) check
+This runs tripwire. Tripwire initialize-interactive or initialize-batch should
+have been run
+
+7) print
+prints the most recent tripwire report
+
+##############################################################
+@Copyright@
+@Copyright@

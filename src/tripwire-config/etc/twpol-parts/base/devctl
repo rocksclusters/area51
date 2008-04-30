@@ -1,0 +1,19 @@
+# $Log: devctl,v $
+# Revision 1.3  2008/04/15 23:21:22  bruno
+# update policy files
+#
+# Revision 1.2  2005/10/14 05:48:43  phil
+# Clean up the checked for files to silence tripwire a bit
+#
+# Revision 1.1  2004/04/20 00:35:13  mjk
+# more pmp'n tripwire
+#
+# Revision 1.1  2004/04/07 21:21:30  phil
+#
+# Tripwire Policy file parts
+#
+# Hardware and Device Control Programs # #
+  /sbin/hwclock                        -> $(SEC_CRIT) ;
+  /sbin/losetup                        -> $(SEC_CRIT) ;
+  /sbin/lspci                          -> $(SEC_CRIT) ;
+  /sbin/setpci                         -> $(SEC_CRIT) ;

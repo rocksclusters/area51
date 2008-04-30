@@ -1,0 +1,16 @@
+# $Log: sinfo,v $
+# Revision 1.2  2005/10/14 05:48:43  phil
+# Clean up the checked for files to silence tripwire a bit
+#
+# Revision 1.1  2004/04/20 00:35:13  mjk
+# more pmp'n tripwire
+#
+# Revision 1.1  2004/04/07 21:21:30  phil
+#
+# Tripwire Policy file parts
+#
+# System Information Programs # #
+  /sbin/consoletype                    -> $(SEC_CRIT) ;
+  #/sbin/kernelversion                  -> $(SEC_CRIT) ;
+  /sbin/runlevel                       -> $(SEC_CRIT) ;
+

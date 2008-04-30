@@ -1,0 +1,66 @@
+# $Log: config,v $
+# Revision 1.3  2005/10/17 03:00:11  phil
+# Make the Software do what the FAQ claims.
+#
+# Revision 1.2  2005/10/16 04:00:29  phil
+# various tweaks
+#
+# Revision 1.1  2004/04/20 00:35:13  mjk
+# more pmp'n tripwire
+#
+# Revision 1.3  2004/04/19 05:16:28  phil
+# Make changes to /var/lib/nfs/rmtab quiet
+#
+# Revision 1.2  2004/04/09 06:47:22  phil
+# profile.d is elsewhere
+#
+# Revision 1.1  2004/04/08 05:27:40  phil
+# Build twpol.txt file from component parts
+#
+# Critical configuration files # #
+#                              ##
+################################
+     #/etc/conf.linuxconf               -> $(SEC_BIN) ;
+     # /etc/conf.modules                -> $(SEC_BIN) ; # No longer used?
+     /etc/modprobe.conf                -> $(SEC_BIN) ; 
+	/etc/rc.d/init.d/iptables       -> $(SEC_BIN) ;
+	/etc/sysconfig/iptables-config  -> $(SEC_BIN) ;
+     #	/lib/iptables                   -> $(SEC_BIN) ;
+
+     /etc/crontab                      -> $(SEC_BIN) ;
+     /etc/cron.hourly                  -> $(SEC_BIN) ;
+     /etc/cron.daily                   -> $(SEC_BIN) ;
+     /etc/cron.weekly                  -> $(SEC_BIN) ;
+     /etc/cron.monthly                 -> $(SEC_BIN) ;
+     /etc/default                      -> $(SEC_BIN) ;
+     /etc/fstab                        -> $(SEC_BIN) ;
+     /etc/exports                      -> $(SEC_BIN) ;
+     /etc/group-                       -> $(SEC_BIN) ;  # changes should be infrequent
+     /etc/host.conf                    -> $(SEC_BIN) ;
+     /etc/hosts.allow                  -> $(SEC_BIN) ;
+     /etc/hosts.deny                   -> $(SEC_BIN) ;
+     /etc/httpd/conf                   -> $(SEC_BIN) ;  # changes should be infrequent
+     /etc/protocols                    -> $(SEC_BIN) ;
+     /etc/services                     -> $(SEC_BIN) ;
+     /etc/rc.d/init.d                  -> $(SEC_BIN) ;
+     /etc/rc.d                         -> $(SEC_BIN) ;
+     /etc/mail.rc                      -> $(SEC_BIN) ;
+     /etc/motd                         -> $(SEC_BIN) ;
+     /etc/ssh                         -> $(SEC_BIN) (recurse = 1);
+     # /etc/named.boot                  -> $(SEC_BIN) ;
+     /etc/passwd                       -> $(SEC_CONFIG) ;
+     /etc/passwd-                      -> $(SEC_CONFIG) ;
+     /var/lib/nfs/rmtab                -> $(Dynamic) ; 
+     # /usr/sbin/fixrmtab                -> $(SEC_BIN) ;
+     /etc/rpc                          -> $(SEC_BIN) ;
+     /etc/sysconfig                    -> $(SEC_BIN) ;
+     # /etc/smb.conf                     -> $(SEC_CONFIG) ;
+     # /etc/gettydefs                    -> $(SEC_BIN) ;
+     /etc/nsswitch.conf                -> $(SEC_BIN) ;
+     /etc/yp.conf                      -> $(SEC_BIN) ;
+     /etc/hosts                        -> $(SEC_CONFIG) ;
+     # /etc/inetd.conf                   -> $(SEC_CONFIG) ;
+     /etc/inittab                      -> $(SEC_CONFIG) ;
+     /etc/resolv.conf                  -> $(SEC_CONFIG) ;
+     /etc/syslog.conf                  -> $(SEC_CONFIG) ;
+

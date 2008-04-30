@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ "$1" == "head" ]; then 
+	echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">'
+	echo '<html>'
+	echo '<head>'
+	echo '<meta HTTP-EQUIV="Content-Type" Content="text-html; charset=Windows-1252">'
+	echo "<title>Tripwire Report for `hostname -s` on `date`</title>"
+	echo '</head>'
+	echo '<body>'
+	echo '<pre>'
+elif [ "$1" == "tail" ]; then 
+	echo '</pre></body></html>'
+fi
+	

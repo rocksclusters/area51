@@ -1,0 +1,36 @@
+#!/bin/bash 
+WWWTWROOT=$1
+/bin/cp rocks-tripwire.png $WWWTWROOT
+CURRENT=`pwd`
+cd $WWWTWROOT 
+echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">'
+echo '<html>'
+echo '<head>'
+echo '<meta HTTP-EQUIV="Content-Type" Content="text-html">'
+echo "<title>Tripwire Reports for `hostname -s` updated `date`</title>"
+echo '</head>'
+echo '<body>'
+echo '<h1><img src="rocks-tripwire.png"><p>'
+echo "Tripwire Report for `hostname`</h1>"
+if [ -e tw-md5s ]; then
+	echo '<p><hr>'
+	echo '<h3>MD5 Sums of Policy,Config,and Tripwire Executable at Installation:</h3> <p>'
+	echo '<pre>'
+	cat tw-md5s
+	echo '</pre>'
+fi
+echo '<p><hr><p>'
+echo '<h1>Archived Reports</h1>'
+ARCHIVES=`find . -maxdepth 1 -type d -a -not -regex '.*RCS.*' -printf "%A@ " -print | sort -n -k 1 -r | awk '{print $2}'`
+for archive in $ARCHIVES; do
+	if [ "$archive" != "." ]; then
+		echo "<p><a href=\"$archive\">`basename $archive`</a>"
+	fi
+done
+cd $CURRENT
+echo '<p><hr><p>'
+echo "<h1>Latest Report as of `date`</h1>"
+echo '<pre>'
+make -s print-report 2>&1
+echo '</pre>'
+echo '</body></html>'

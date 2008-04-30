@@ -1,0 +1,428 @@
+  ##############################################################################
+ #                                                                            ##
+############################################################################## #
+#                                                                            # #
+#                     Policy file Outline for Rocks                          # #
+#                                V1.0.0                                      # #
+#                             April 7, 2004                                  # #
+#                                                                            ##
+##############################################################################
+
+
+  ##############################################################################
+ #                                                                            ##
+############################################################################## #
+#                                                                            # #
+# This is the example Tripwire Policy file.  It is intended as a place to    # #
+# start creating your own custom Tripwire Policy file.  Referring to it as   # #
+# well as the Tripwire Policy Guide should give you enough information to    # #
+# make a good custom Tripwire Policy file that better covers your            # #
+# configuration and security needs.  A text version of this policy file is   # #
+# called twpol.txt.                                                          # #
+#                                                                            # #
+# Note that this file is tuned to an 'everything' install of RedHat Linux    # #
+# 7.0.  If run unmodified, this file should create no errors on database     # #
+# creation, or violations on a subsiquent integrity check.  However, it is   # #
+# impossible for there to be one policy file for all machines, so this       # #
+# existing one errs on the side of security.  Your Linux configuration will  # #
+# most likey differ from the one our policy file was tuned to, and will      # #
+# therefore require some editing of the default Tripwire Policy file.        # #
+#                                                                            # #
+# The example policy file is best run with 'Loose Directory Checking'        # #
+# enabled. Set LOOSEDIRECTORYCHECKING=TRUE in the Tripwire Configuration     # #
+# file.                                                                      # #
+#                                                                            # #
+# Email support is not included and must be added to this file.              # #
+# Add the 'emailto=' to the rule directive section of each rule (add a comma # #
+# after the 'severity=' line and add an 'emailto=' and include the email     # #
+# addresses you want the violation reports to go to).  Addresses are         # #
+# semi-colon delimited.                                                      # #
+#                                                                            ##
+##############################################################################
+
+
+
+  ##############################################################################
+ #                                                                            ##
+############################################################################## #
+#                                                                            # #
+# Global Variable Definitions                                                # #
+#                                                                            # #
+# These are defined at install time by the installation script.  You may     # #
+# Manually edit these if you are using this file directly and not from the   # #
+# installation script itself.                                                # #
+#                                                                            ##
+##############################################################################
+
+include(globals)
+
+@@section FS
+SEC_CRIT      = $(IgnoreNone)-SHa ;  # Critical files that cannot change
+SEC_SUID      = $(IgnoreNone)-SHa ;  # Binaries with the SUID or SGID flags set
+SEC_BIN       = $(ReadOnly) ;        # Binaries that should not change
+SEC_CONFIG    = $(Dynamic) ;         # Config files that are changed infrequently but accessed often
+SEC_LOG       = $(Growing) ;         # Files that grow, but that should never change ownership
+SEC_INVARIANT = +tpug ;              # Directories that should never change permission or ownership
+SIG_LOW       = 33 ;                 # Non-critical files that are of minimal security impact
+SIG_MED       = 66 ;                 # Non-critical files that are of significant security impact
+SIG_HI        = 100 ;                # Critical files that are significant points of vulnerability
+
+
+# Tripwire Binaries
+(
+  rulename = "Tripwire Binaries",
+  severity = $(SIG_HI)
+)
+{
+include(base/binaries)
+include(addon/binaries)
+}
+
+# Tripwire Data Files - Configuration Files, Policy Files, Keys, Reports, Databases
+(
+  rulename = "Tripwire Data Files",
+  severity = $(SIG_HI)
+)
+{
+include(base/data)
+include(addon/data)
+}
+
+
+# Commonly accessed directories that should remain static with regards to owner and group
+(
+  rulename = "Invariant Directories",
+  severity = $(SIG_MED)
+)
+{
+include(base/invariants)
+include(addon/invariants)
+}
+  ################################################
+ #                                              ##
+################################################ #
+#                                              # #
+# File System and Disk Administration Programs # #
+#                                              ##
+################################################
+
+(
+  rulename = "File System and Disk Administraton Programs",
+  severity = $(SIG_HI)
+)
+{
+include(base/admin)
+include(addon/admin)
+}
+
+  ##################################
+ #                                ##
+################################## #
+#                                # #
+# Kernel Administration Programs # #
+#                                ##
+##################################
+
+(
+  rulename = "Kernel Administration Programs",
+  severity = $(SIG_HI)
+)
+{
+include(base/kadmin)
+include(addon/kadmin)
+}
+
+  #######################
+ #                     ##
+####################### #
+#                     # #
+# Networking Programs # #
+#                     ##
+#######################
+
+(
+  rulename = "Networking Programs",
+  severity = $(SIG_HI)
+)
+{
+include(base/network)
+include(addon/network)
+}
+
+  ##################################
+ #                                ##
+################################## #
+#                                # #
+# System Administration Programs # #
+#                                ##
+##################################
+
+(
+  rulename = "System Administration Programs",
+  severity = $(SIG_HI)
+)
+{
+include(base/sadmin)
+include(addon/sadmin)
+}
+
+  ########################################
+ #                                      ##
+######################################## #
+#                                      # #
+# Hardware and Device Control Programs # #
+#                                      ##
+########################################
+(
+  rulename = "Hardware and Device Control Programs",
+  severity = $(SIG_HI)
+)
+{
+include(base/devctl)
+include(addon/devctl)
+}
+
+  ###############################
+ #                             ##
+############################### #
+#                             # #
+# System Information Programs # #
+#                             ##
+###############################
+(
+  rulename = "System Information Programs",
+  severity = $(SIG_HI)
+)
+{
+include(base/sinfo)
+include(addon/sinfo)
+}
+
+  ####################################
+ #                                  ##
+#################################### #
+#                                  # #
+# Application Information Programs # #
+#                                  ##
+####################################
+
+(
+  rulename = "Application Information Programs",
+  severity = $(SIG_HI)
+)
+{
+include(base/appinfo)
+include(addon/appinfo)
+}
+
+  ################
+ #              ##
+################ #
+#              # #
+# OS Utilities # #
+#              ##
+################
+(
+  rulename = "Operating System Utilities",
+  severity = $(SIG_HI)
+)
+{
+include(base/osutils)
+include(addon/osutils)
+}
+
+  ##############################
+ #                            ##
+############################## #
+#                            # #
+# Critical Utility Sym-Links # #
+#                            ##
+##############################
+(
+  rulename = "Critical Utility Sym-Links",
+  severity = $(SIG_HI)
+)
+{
+include(base/symlinks)
+include(addon/symlinks)
+}
+
+
+  #########################
+ #                       ##
+######################### #
+#                       # #
+# Temporary directories # #
+#                       ##
+#########################
+(
+  rulename = "Temporary directories",
+  recurse = false,
+  severity = $(SIG_LOW)
+)
+{
+}
+
+  ###############
+ #             ##
+############### #
+#             # #
+# Local files # #
+#             ##
+###############
+(
+  rulename = "User binaries",
+  severity = $(SIG_MED)
+)
+{
+include(base/userbin)
+include(addon/userbin)
+}
+
+(
+  rulename = "Shell Binaries",
+  severity = $(SIG_HI)
+)
+{
+include(base/shellbin)
+include(addon/shellbin)
+}
+
+(
+  rulename = "Security Control",
+  severity = $(SIG_HI)
+)
+{
+include(base/security)
+include(addon/security)
+}
+
+(
+  rulename = "Login Scripts",
+  severity = $(SIG_HI)
+)
+{
+include(base/profiles)
+include(addon/profiles)
+}
+
+# Libraries
+(
+  rulename = "Libraries",
+  severity = $(SIG_MED)
+)
+{
+include(base/libs)
+include(addon/libs)
+}
+
+
+  ######################################################
+ #                                                    ##
+###################################################### #
+#                                                    # #
+# Critical System Boot Files                         # #
+# These files are critical to a correct system boot. # #
+#                                                    ##
+######################################################
+
+(
+  rulename = "Critical system boot files",
+  severity = $(SIG_HI)
+)
+{
+include(base/bootfiles)
+include(addon/bootfiles)
+}
+   ##################################################
+  ###################################################
+  # These files change every time the system boots ##
+  ##################################################
+(
+  rulename = "System boot changes",
+  severity = $(SIG_HI)
+)
+{
+include(base/boot-volatile)
+include(addon/boot-volatile)
+}
+
+# These files change the behavior of the root account
+(
+  rulename = "Root config files",
+  severity = 100
+)
+{
+include(base/root-home)
+include(addon/root-home)
+}
+
+  ################################
+ #                              ##
+################################ #
+#                              # #
+# Critical configuration files # #
+#                              ##
+################################
+(
+  rulename = "Critical configuration files",
+  severity = $(SIG_HI)
+)
+{
+include(base/config)
+include(addon/config)
+}
+
+  ####################
+ #                  ##
+#################### #
+#                  # #
+# Critical devices # #
+#                  ##
+####################
+(
+  rulename = "Critical devices",
+  severity = $(SIG_HI),
+  recurse = false
+)
+{
+include(base/devices)
+include(addon/devices)
+}
+
+# Rest of critical system binaries
+(
+  rulename = "OS executables and libraries",
+  severity = $(SIG_HI)
+)
+{
+include(base/osbin)
+include(addon/osbin)
+}
+
+#=============================================================================
+#
+# Copyright 2000 Tripwire, Inc. Tripwire is a registered trademark of Tripwire,
+# Inc. in the United States and other countries. All rights reserved.
+#
+# Linux is a registered trademark of Linus Torvalds.
+#
+# UNIX is a registered trademark of The Open Group.
+#
+#=============================================================================
+#
+# Permission is granted to make and distribute verbatim copies of this document
+# provided the copyright notice and this permission notice are preserved on all
+# copies.
+#
+# Permission is granted to copy and distribute modified versions of this
+# document under the conditions for verbatim copying, provided that the entire
+# resulting derived work is distributed under the terms of a permission notice
+# identical to this one.
+#
+# Permission is granted to copy and distribute translations of this document
+# into another language, under the above conditions for modified versions,
+# except that this permission notice may be stated in a translation approved by
+# Tripwire, Inc.
+#
+# DCM

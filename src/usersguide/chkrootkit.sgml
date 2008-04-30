@@ -1,0 +1,45 @@
+<section id="using-chkrootkit" xreflabel="Using chkrootkit">
+<title>chkrootkit</title>
+
+<para>
+To see if your frontend has been infected by a rootkit, simply run:
+</para>
+
+<screen>
+# /opt/chkrootkit/bin/chkrootkit
+</screen>
+
+<para>
+This will return output similar to:
+</para>
+
+<screen>
+ROOTDIR is `/'
+Checking `amd'... not found
+Checking `basename'... not infected
+Checking `biff'... not found
+Checking `chfn'... not infected
+Checking `chsh'... not infected
+Checking `cron'... not infected
+Checking `date'... not infected
+Checking `du'... not infected
+Checking `dirname'... not infected
+Checking `echo'... not infected
+Checking `egrep'... not infected
+Checking `env'... not infected
+Checking `find'... not infected
+Checking `fingerd'... not found
+Checking `gpm'... not infected
+</screen>
+
+<para>
+Make sure none of the tests report <emphasis>INFECTED</emphasis>.
+</para>
+
+<para>
+For more information, login to the frontend and read
+<computeroutput>/opt/chkrootkit/README</computeroutput>.
+</para>
+
+</section>
+

@@ -1,0 +1,20 @@
+#$Log: shellbin,v $
+#Revision 1.3  2008/04/15 23:21:22  bruno
+#update policy files
+#
+#Revision 1.2  2005/10/14 05:48:43  phil
+#Clean up the checked for files to silence tripwire a bit
+#
+#Revision 1.1  2004/04/20 00:35:13  mjk
+#more pmp'n tripwire
+#
+#Revision 1.1  2004/04/08 05:27:40  phil
+#Build twpol.txt file from component parts
+#
+# Shell Binaries
+  /bin/csh                             -> $(SEC_BIN) ;
+  /bin/ksh                             -> $(SEC_BIN) ;
+  /usr/kerberos/bin/rsh               -> $(SEC_SUID) ;
+  /bin/sh                              -> $(SEC_BIN) ;
+  /bin/bash                            -> $(SEC_BIN) ;
+  /bin/tcsh                            -> $(SEC_BIN) ;

@@ -1,0 +1,21 @@
+#!/bin/sh
+export HOME=/root
+cd @TWCONFIGDIR@
+# Get the email addresses to whom this report should be sent. If empty, send to 
+# root at this host
+mailto=`./tw-email-to`
+if [ "x$mailto" == "x" ]; then
+	mailto=root@`hostname`
+fi
+HOST=`uname -n`;
+make -s check 2>&1 | mail -s "Tripwire: Daily report from $HOST" "$mailto" 
+
+# Now Create an HTML version of this report and archive it by month.
+# Then remake the index page of reports
+EXT=`date '+%B-%Y'`
+if [ ! -d @WWWTWROOT@/$EXT ]; then
+	mkdir @WWWTWROOT@/$EXT
+fi
+make -s html > @WWWTWROOT@/$EXT/`make -s recent-report`.html 2>&1
+make -s index-page > @WWWTWROOT@/index.html 
+

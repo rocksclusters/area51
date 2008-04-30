@@ -1,0 +1,132 @@
+###################################################################
+#
+# TripWire Configuration Parameters
+#
+#
+
+#### PATHNAMES
+TWOPTROOT=@TWOPTDIR@
+
+# Tripwire policy files are stored in TWPOLICY.
+TWPOLICY="@TWCONFIGDIR@"
+
+# Tripwire binaries are stored in TWBIN.
+TWBIN=${TWOPTROOT}/sbin
+
+# Tripwire manual pages are stored in TWMAN.
+TWMAN=${TWOPTROOT}/man
+
+# Tripwire database files are stored in TWDB.
+TWDB=${TWOPTROOT}/db
+
+# Tripwire documents directory
+TWDOCS=${TWOPTROOT}/docs
+
+# The Tripwire site key files are stored in TWSITEKEYDIR.
+TWSITEKEYDIR="${TWPOLICY}"
+
+# The Tripwire local key files are stored in TWLOCALKEYDIR.
+TWLOCALKEYDIR="${TWPOLICY}"
+
+# Tripwire report files are stored in TWREPORT.
+TWREPORT="${TWDB}/report"
+
+# Location of WWW root for HTML version of reports
+WWWTWROOT="@WWWTWROOT@"
+
+#### Configuration Parameters
+
+# Default Tripwire configuration file.
+TW_CONFIG_FILE=tw.cfg
+
+# Name of initial cleartext Tripwire policy file.
+CLR_CONFIG_FILE=twcfg.txt
+
+# Name of initial cleartext Tripwire policy file.
+CLR_POLICY_FILE=twpol.txt
+
+# Starting directory.
+START_DIR=`pwd`
+
+# Site passphrase.
+TW_SITE_PASS=""
+
+# Local passphrase.
+TW_LOCAL_PASS=""
+
+# If clobber==true, overwrite files; if false, do not overwrite files.
+CLOBBER=false
+
+# This sets the default text editor for Tripwire.
+
+TWEDITOR="/usr/bin/vim"
+# TWLATEPROMTING controls the point when tripwire asks for a password.
+
+TWLATEPROMPTING=false
+# TWLOOSEDIRCHK selects whether the directory should be monitored for 
+# properties that change when files in the directory are monitored.
+
+TWLOOSEDIRCHK=false
+# TWMAILNOVIOLATIONS determines whether Tripwire sends a no violation 
+# report when integrity check is run with --email-report but no rule
+# violations are found.  This lets the admin know that the integrity 
+# was run, as opposed to having failed for some reason.
+
+TWMAILNOVIOLATIONS=true
+# TWEMAILREPORTLEVEL determines the verbosity of e-mail reports.
+
+TWEMAILREPORTLEVEL=3
+# TWREPORTLEVEL determines the verbosity of report printouts.
+
+TWREPORTLEVEL=3
+# TWSYSLOG determines whether Tripwire will log events to the system log
+
+TWSYSLOG=true
+
+#####################################
+# Mail Options - Choose the appropriate
+# method and comment the other section
+#####################################
+
+#####################################
+# SENDMAIL options - DEFAULT
+#
+# Either SENDMAIL or SMTP can be used to send reports via TWMAILMETHOD.
+# Specifies which sendmail program to use.
+#####################################
+
+TWMAILMETHOD=SENDMAIL
+TWMAILPROGRAM="/bin/sendmail -oi -t"
+
+#####################################
+# SMTP options
+#
+# TWSMTPHOST selects the SMTP host to be used to send reports.
+# SMTPPORT selects the SMTP port for the SMTP mail program to use.
+#####################################
+
+# TWMAILMETHOD=SMTP
+# TWSMTPHOST="mail.domain.com"
+
+# TWSMTPPORT=25
+
+
+##-------------------------------------------------------
+## Set default values for Tripwire file names.
+##-------------------------------------------------------
+
+HOST_NAME=`uname -n`
+
+LOCAL_KEY="${TWLOCALKEYDIR}/${HOST_NAME}-local.key"
+SITE_KEY="${TWSITEKEYDIR}/site.key"
+CONFIG_FILE="${TWPOLICY}/${TW_CONFIG_FILE}"  # Signed config file
+POLICY_FILE="${TWPOLICY}/tw.pol"        # Signed policy file
+TXT_CFG="${TWPOLICY}/${CLR_CONFIG_FILE}"   # Cleartext config file
+TXT_POL="${TWPOLICY}/${CLR_POLICY_FILE}"  # Cleartext policy file
+TWADMIN="${TWBIN}/twadmin"
+
+################################################################################
+# Copyright (C) 1998-2000 Tripwire (R) Security Systems, Inc. Tripwire (R) is a
+# registered trademark of the Purdue Research Foundation and is licensed
+# exclusively to Tripwire (R) Security Systems, Inc.
+################################################################################

@@ -1,0 +1,56 @@
+#$Log: osutils,v $
+#Revision 1.2  2008/04/15 23:21:22  bruno
+#update policy files
+#
+#Revision 1.1  2004/04/20 00:35:13  mjk
+#more pmp'n tripwire
+#
+#Revision 1.1  2004/04/08 05:27:40  phil
+#Build twpol.txt file from component parts
+#
+# OS Utilities # #
+
+  /bin/cat                             -> $(SEC_CRIT) ;
+  /bin/date                            -> $(SEC_CRIT) ;
+  /bin/dd                              -> $(SEC_CRIT) ;
+  /bin/df                              -> $(SEC_CRIT) ;
+  /bin/echo                            -> $(SEC_CRIT) ;
+  /bin/egrep                           -> $(SEC_CRIT) ;
+  /bin/false                           -> $(SEC_CRIT) ;
+  /bin/fgrep                           -> $(SEC_CRIT) ;
+  /bin/gawk                            -> $(SEC_CRIT) ;
+  /bin/grep                            -> $(SEC_CRIT) ;
+  /bin/true                            -> $(SEC_CRIT) ;
+  /bin/arch                            -> $(SEC_CRIT) ;
+  /bin/basename                        -> $(SEC_CRIT) ;
+  /bin/dmesg                           -> $(SEC_CRIT) ;
+  /bin/doexec                          -> $(SEC_CRIT) ;
+  /bin/ed                              -> $(SEC_CRIT) ;
+  /bin/gunzip                          -> $(SEC_CRIT) ;
+  /bin/gzip                            -> $(SEC_CRIT) ;
+  /bin/hostname                        -> $(SEC_CRIT) ;
+  /bin/igawk                           -> $(SEC_CRIT) ;
+  /bin/ipcalc                          -> $(SEC_CRIT) ;
+  /bin/kill                            -> $(SEC_CRIT) ;
+  /bin/ln                              -> $(SEC_CRIT) ;
+  /bin/loadkeys                        -> $(SEC_CRIT) ;
+  /bin/login                           -> $(SEC_CRIT) ;
+  /bin/ls                              -> $(SEC_CRIT) ;
+  /bin/mail                            -> $(SEC_CRIT) ;
+  /bin/more                            -> $(SEC_CRIT) ;
+  /bin/mv                              -> $(SEC_CRIT) ;
+  /bin/netstat                         -> $(SEC_CRIT) ;
+  /bin/nice                            -> $(SEC_CRIT) ;
+  /bin/ps                              -> $(SEC_CRIT) ;
+  /bin/rpm                             -> $(SEC_CRIT) ;
+  /bin/sed                             -> $(SEC_CRIT) ;
+  /bin/setserial                       -> $(SEC_CRIT) ;
+  /bin/sleep                           -> $(SEC_CRIT) ;
+  /bin/sort                            -> $(SEC_CRIT) ;
+  /bin/stty                            -> $(SEC_CRIT) ;
+  /bin/su                              -> $(SEC_CRIT) ;
+  /bin/sync                            -> $(SEC_CRIT) ;
+  /bin/tar                             -> $(SEC_CRIT) ;
+  /bin/usleep                          -> $(SEC_CRIT) ;
+  /bin/vi                              -> $(SEC_CRIT) ;
+  /bin/zcat                            -> $(SEC_CRIT) ;
