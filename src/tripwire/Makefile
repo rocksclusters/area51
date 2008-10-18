@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.13 2008/04/15 22:50:57 bruno Exp $
+# $Id: Makefile,v 1.14 2008/10/18 00:55:44 mjk Exp $
 #
 # Moved over from contrib area into the area51 roll.  This move makes the
 # Make and Spec files simpler. (Rolls still Rock)
@@ -7,7 +7,7 @@
 # 
 # 				Rocks(r)
 # 		         www.rocksclusters.org
-# 		            version 5.0 (V)
+# 		           version 5.1  (VI)
 # 
 # Copyright (c) 2000 - 2008 The Regents of the University of California.
 # All rights reserved.	
@@ -57,6 +57,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.14  2008/10/18 00:55:44  mjk
+# copyright 5.1
+#
 # Revision 1.13  2008/04/15 22:50:57  bruno
 # fixes
 #
