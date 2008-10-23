@@ -8,6 +8,9 @@ Link to the Tripwire status page on the frontend's web site
 
 <changelog>
 $Log: tripwire-wp.xml,v $
+Revision 1.3  2008/10/23 22:10:27  bruno
+add a link description
+
 Revision 1.2  2005/10/18 00:28:30  bruno
 tune the web site
 
@@ -19,8 +22,8 @@ Add Tripwire to wordpress.
 <post>
 
 <file name="/tmp/tripwire-wp.sql">
-insert into wp_links (link_name, link_url, link_category)
-	values ('Tripwire',
+insert into wp_links (link_name, link_description, link_url, link_category)
+	values ('Tripwire', 'View the latest Tripwire reports',
 	'/tripwire/',
 	2);
 </file>
