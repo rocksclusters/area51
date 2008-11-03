@@ -4,36 +4,6 @@
 
 
 <qandaentry>
-<question id="Email">
-<para>
-How do I change the email addresses that receive the daily Tripwire report?
-</para>
-</question>
-<answer>
-<para>
-To have tripwire email its report to a different email address. Simply
-run the <computeroutput>
-/opt/tripwire/etc/tw-email-to -set address1 [address2]</computeroutput>.
-For example, say you want to email the tripwire reports to go to
-<computeroutput>wopr@wargames.org</computeroutput> and 
-<computeroutput>root</computeroutput>.
-</para>
-
-<screen>
-/opt/tripwire/etc/tw-email-to -set wopr@wargames.org root@`hostname`
-</screen>
-
-<para>
-To view the set of addresses for the Tripwire Daily Report
-</para>
-
-<screen>
-/opt/tripwire/etc/tw-email-to
-</screen>
-</answer>
-</qandaentry>
-
-<qandaentry>
 <question id="Tripwire_MD5">
 <para>
 The MD5 Sums for My Policy/Config/Tripwire Executable Files at Installation
