@@ -1,6 +1,5 @@
-#!/bin/sh
-#
-# $Id: post-99-tripwire.in,v 1.10 2008/11/03 18:30:14 mjk Exp $
+# --------------------------------------------------- -*- Makefile -*- --
+# $Id: Makefile,v 1.1 2008/11/03 18:30:14 mjk Exp $
 #
 # @Copyright@
 # 
@@ -55,66 +54,23 @@
 # 
 # @Copyright@
 #
-# $Log: post-99-tripwire.in,v $
-# Revision 1.10  2008/11/03 18:30:14  mjk
+# $Log: Makefile,v $
+# Revision 1.1  2008/11/03 18:30:14  mjk
 # - fix userguide copyright building
 # - area51 uses rocks command line
 #
-# Revision 1.9  2008/10/18 00:55:44  mjk
-# copyright 5.1
-#
-# Revision 1.8  2008/03/06 23:41:29  mjk
-# copyright storm on
-#
-# Revision 1.7  2007/06/23 04:03:17  mjk
-# mars hill copyright
-#
-# Revision 1.6  2006/09/11 22:46:54  mjk
-# monkey face copyright
-#
-# Revision 1.5  2006/08/10 00:09:18  mjk
-# 4.2 copyright
-#
-# Revision 1.4  2005/10/18 22:38:37  phil
-# If prelink exists, then prelink libs and binaries before initializing the
-# tripwire database.
-#
-# Revision 1.3  2005/10/16 04:49:37  phil
-# Initialize the email sento to be root@hostname
-#
-# Revision 1.2  2005/10/15 20:31:29  phil
-# Tell user what's going on. Properly build the md5 sums
-#
-# Revision 1.1  2005/10/15 16:26:17  phil
-# Add md5 check at startup. Need to do some macro mashing, so make
-# post-99-tripwire an "in" file
-#
-# Revision 1.4  2005/10/12 18:08:23  mjk
-# final copyright for 4.1
-#
-# Revision 1.3  2005/09/16 01:02:03  mjk
-# updated copyright
-#
-# Revision 1.2  2005/05/24 21:21:37  mjk
-# update copyright, release is not any closer
-#
-# Revision 1.1  2004/04/30 18:36:08  mjk
-# - move post section from RPM to Graph
-# - build database on system startup
-#
 
-echo -n "Initializing Tripwire Database ..." 
-# If prelinking is defined, then let it prelink before
-# We initiialize the tripwire database
-if [ -f /etc/cron.daily/prelink ]; then
-	echo Prelink Binaries and Libraries ...
-	/etc/cron.daily/prelink
-fi
+PKGROOT         = /opt/rocks
+REDHAT.ROOT     = $(CURDIR)/../../
+-include $(ROCKSROOT)/etc/Rules.mk
+include Rules.mk
 
-/opt/rocks/bin/rocks set tripwire mail root@`hostname`
+build:
 
-make -C /opt/tripwire/etc/ initialize-batch >& /dev/null
-make -s -C /opt/tripwire/etc md5 > @WWWTWROOT@/tw-md5s 2>&1
-echo "Done."
-
-rm /etc/rc.d/rocksconfig.d/post-99-tripwire
+install::
+	mkdir -p $(ROOT)/$(PY.ROCKS)/rocks/commands/
+	find -name "*.py" | \
+		cpio -pduv $(ROOT)/$(PY.ROCKS)/rocks/commands/
+	find $(ROOT)/$(PY.ROCKS)/rocks/commands -name "*.py" | awk \
+		'{ print "\nRollName = \"$(ROLL)\"" >> $$1; }'
+	find $(ROOT) -type d -exec chmod a+rx {} \;
