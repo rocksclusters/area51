@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.14 2008/10/18 00:55:44 mjk Exp $
+# $Id: Makefile,v 1.15 2008/11/17 23:57:20 bruno Exp $
 #
 # Moved over from contrib area into the area51 roll.  This move makes the
 # Make and Spec files simpler. (Rolls still Rock)
@@ -57,6 +57,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.15  2008/11/17 23:57:20  bruno
+# change to enable the area51 roll to be built outside the rocks source tree
+#
 # Revision 1.14  2008/10/18 00:55:44  mjk
 # copyright 5.1
 #
@@ -99,9 +102,6 @@
 # Revision 1.1  2004/04/19 23:09:27  mjk
 # *** empty log message ***
 
-
-REDHAT.ROOT     = $(PWD)/../../
-ROCKSROOT       = ../../../../..
 
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
