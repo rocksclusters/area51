@@ -10,6 +10,9 @@
 
 	<changelog>
 	$Log: area51-server.xml,v $
+	Revision 1.10  2009/01/23 21:02:34  bruno
+	convert var tags to entities
+	
 	Revision 1.9  2008/11/03 18:30:14  mjk
 	- fix userguide copyright building
 	- area51 uses rocks command line
@@ -54,7 +57,7 @@ MANPATH /opt/tripwire/man
 
 
 <file name="/opt/tripwire/etc/twpol-parts/globals" mode="append">
-HOSTNAME=<var name="Node_Hostname"/>;
+HOSTNAME=&Node_Hostname;
 </file>
 
 /opt/rocks/bin/rocks set tripwire mail root@localhost
