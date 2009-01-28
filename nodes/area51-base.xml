@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 
-<kickstart>
+<kickstart interface="public">
 
 	<description>
 
@@ -10,6 +10,10 @@
 
 	<changelog>
 	$Log: area51-base.xml,v $
+	Revision 1.2  2009/01/28 20:45:51  mjk
+	- make node files "public"
+	- added glew to bootstap
+	
 	Revision 1.1  2005/03/04 01:46:33  mjk
 	*** empty log message ***
 	
