@@ -10,6 +10,9 @@
 
 	<changelog>
 	$Log: area51-server.xml,v $
+	Revision 1.12  2009/02/02 19:38:35  mjk
+	Node_Hostname is now hostname
+	
 	Revision 1.11  2009/01/28 20:45:51  mjk
 	- make node files "public"
 	- added glew to bootstap
@@ -61,7 +64,7 @@ MANPATH /opt/tripwire/man
 
 
 <file name="/opt/tripwire/etc/twpol-parts/globals" mode="append">
-HOSTNAME=&Node_Hostname;
+HOSTNAME=&hostname;
 </file>
 
 /opt/rocks/bin/rocks set tripwire mail root@localhost
