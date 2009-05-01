@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.15 2008/11/17 23:57:20 bruno Exp $
+# $Id: Makefile,v 1.16 2009/05/01 19:06:46 mjk Exp $
 #
 # Moved over from contrib area into the area51 roll.  This move makes the
 # Make and Spec files simpler. (Rolls still Rock)
@@ -7,9 +7,9 @@
 # 
 # 				Rocks(r)
 # 		         www.rocksclusters.org
-# 		           version 5.1  (VI)
+# 		       version 5.2 (Chimichanga)
 # 
-# Copyright (c) 2000 - 2008 The Regents of the University of California.
+# Copyright (c) 2000 - 2009 The Regents of the University of California.
 # All rights reserved.	
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -57,6 +57,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.16  2009/05/01 19:06:46  mjk
+# chimi con queso
+#
 # Revision 1.15  2008/11/17 23:57:20  bruno
 # change to enable the area51 roll to be built outside the rocks source tree
 #
