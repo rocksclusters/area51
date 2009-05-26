@@ -10,6 +10,9 @@
 
 	<changelog>
 	$Log: area51-server.xml,v $
+	Revision 1.14  2009/05/26 22:22:21  bruno
+	no longer have rocks commands for this roll
+	
 	Revision 1.13  2009/05/26 22:21:31  bruno
 	changed 'tripwire' 'mail(to)' from an app_global to a global attribute
 	
@@ -54,7 +57,6 @@
 	
 	</changelog>
 
-	<package>rocks-command-area51</package>
 	<package>roll-area51-usersguide</package>
 	<package>tripwire</package>
 	<package>tripwire-config</package>
