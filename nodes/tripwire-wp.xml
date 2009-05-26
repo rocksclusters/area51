@@ -8,6 +8,9 @@ Link to the Tripwire status page on the frontend's web site
 
 <changelog>
 $Log: tripwire-wp.xml,v $
+Revision 1.4  2009/05/26 22:21:31  bruno
+changed 'tripwire' 'mail(to)' from an app_global to a global attribute
+
 Revision 1.3  2008/10/23 22:10:27  bruno
 add a link description
 
@@ -28,7 +31,7 @@ insert into wp_links (link_name, link_description, link_url, link_category)
 	2);
 </file>
 
-cat /tmp/tripwire-wp.sql | mysql -u wordpress wordpress
+cat /tmp/tripwire-wp.sql | /opt/rocks/bin/mysql -u wordpress wordpress
 rm -f /tmp/tripwire-wp.sql
 mkdir -p /var/www/html/tripwire
 <file name="/var/www/html/tripwire/index.html" owner="root.apache">

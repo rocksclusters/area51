@@ -95,14 +95,14 @@ tripwire/etc/tw.cfg
 <para>
 To have tripwire email its report to a different email address. Simply
 run the 
-<computeroutput>rocks set tripwire mail address1 [address2]</computeroutput>.
+<computeroutput>rocks set attr tripwire_mail "address1 [address2]"</computeroutput>.
 For example, say you want to email the tripwire reports to go to
 <computeroutput>wopr@wargames.org</computeroutput> and 
 <computeroutput>root</computeroutput>.
 </para>
 
 <screen>
-rocks set tripwire mail wopr@wargames.org root@`hostname`
+rocks set attr tripwire_mail "wopr@wargames.org root@`hostname`"
 </screen>
 
 <para>
@@ -110,7 +110,7 @@ To view the set of addresses for the Tripwire Daily Report
 </para>
 
 <screen>
-rocks list tripwire mail
+rocks list attr | grep tripwire_mail
 </screen>
 
 </section>

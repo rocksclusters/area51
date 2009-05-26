@@ -1,12 +1,12 @@
 #!/bin/sh
 export HOME=/root
 cd @TWCONFIGDIR@
+
 # Get the email addresses to whom this report should be sent. If empty, send to 
 # root at this host
+
 mailto=`./tw-email-to`
-if [ "x$mailto" == "x" ]; then
-	mailto=root@`hostname`
-fi
+
 HOST=`uname -n`;
 make -s check 2>&1 | mail -s "Tripwire: Daily report from $HOST" "$mailto" 
 

@@ -1,6 +1,9 @@
 #!/bin/bash
-# $Id: tw-email-to,v 1.3 2007/07/13 17:30:34 phil Exp $
+# $Id: tw-email-to,v 1.4 2009/05/26 22:21:31 bruno Exp $
 # $Log: tw-email-to,v $
+# Revision 1.4  2009/05/26 22:21:31  bruno
+# changed 'tripwire' 'mail(to)' from an app_global to a global attribute
+#
 # Revision 1.3  2007/07/13 17:30:34  phil
 # Use the rocks command line to store the emailto for tripwire
 #
@@ -10,30 +13,18 @@
 # Revision 1.1  2005/10/16 04:46:07  phil
 # Generic method to set the email address for report recipients
 #
+
 #
-# A small script to set/read email addresses that tripwire cron sends email to
+# A small script to read email addresses that tripwire cron sends email to
 #
-# Usage:
-# tw-email-to [-set <address1> <address2> ...]
-#      if "-set" is the first argument it will set the mailto addresses to remainder of the arg list
-#      if "-set" is not specified, the current setting will be printed
-if [ "$1" = "-set" ]; then
-	shift
-	MAILTO="$@"
-	/opt/rocks/bin/rocks set var service=Tripwire component=mailto value="$MAILTO" &> /dev/null
-	retcode=$?
-fi
-# See if we can read the without error
-/opt/rocks/bin/rocks list var service=Tripwire component=mailto 2>1 > /dev/null 
+
+# See if we can get the attribute without error
+/opt/rocks/bin/rocks list attr | grep tripwire_mail' 2>1 > /dev/null 
 retcode=$?
 
 if [ $retcode -eq 0 ]; then 
-	TW_EMAIL_TO=`/opt/rocks/bin/rocks list var service=Tripwire component=mailto | /bin/sed -e 1d -e 's/Tripwire.*mailto[[:space:]]*//'`
-	retcode=$?
-fi
-
-if [ "x$TW_EMAIL_TO" != "x" ]; then 
-	echo $TW_EMAIL_TO
+	/opt/rocks/bin/rocks list attr | grep tripwire_mail | awk '{print $2}'
 else
 	echo "root@localhost"  
 fi
+

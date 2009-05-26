@@ -10,6 +10,9 @@
 
 	<changelog>
 	$Log: area51-server.xml,v $
+	Revision 1.13  2009/05/26 22:21:31  bruno
+	changed 'tripwire' 'mail(to)' from an app_global to a global attribute
+	
 	Revision 1.12  2009/02/02 19:38:35  mjk
 	Node_Hostname is now hostname
 	
@@ -67,7 +70,7 @@ MANPATH /opt/tripwire/man
 HOSTNAME=&hostname;
 </file>
 
-/opt/rocks/bin/rocks set tripwire mail root@localhost
+/opt/rocks/bin/rocks set attr tripwire_mail "root@localhost"
 
 </post>
 
