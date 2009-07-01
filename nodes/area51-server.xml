@@ -10,6 +10,9 @@
 
 	<changelog>
 	$Log: area51-server.xml,v $
+	Revision 1.15  2009/07/01 22:03:59  bruno
+	fixes
+	
 	Revision 1.14  2009/05/26 22:22:21  bruno
 	no longer have rocks commands for this roll
 	
@@ -69,7 +72,7 @@ MANPATH /opt/tripwire/man
 
 
 <file name="/opt/tripwire/etc/twpol-parts/globals" mode="append">
-HOSTNAME=&hostname;
+HOSTNAME=&hostname;;
 </file>
 
 /opt/rocks/bin/rocks set attr tripwire_mail "root@localhost"
