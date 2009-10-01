@@ -1,6 +1,6 @@
 NAME		= chkrootkit
 
-VERSION		= 0.48
+VERSION		= 0.49
 RELEASE		= 1
 
 PKGROOT		= /opt/chkrootkit
