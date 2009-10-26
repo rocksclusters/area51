@@ -1,0 +1,8 @@
+#
+# these are the packages that should be built when this roll is created
+#
+chkrootkit
+roll-area51-kickstart
+roll-area51-usersguide
+tripwire
+tripwire-config
