@@ -1,5 +1,5 @@
 # 
-# $Id: Makefile,v 1.17 2009/05/01 19:06:47 mjk Exp $
+# $Id: Makefile,v 1.18 2010/08/25 19:38:07 bruno Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.18  2010/08/25 19:38:07  bruno
+# touch up the area51 roll for the 5.4 beta
+#
 # Revision 1.17  2009/05/01 19:06:47  mjk
 # chimi con queso
 #
@@ -110,10 +113,11 @@
 #
 
 PKGROOT         = /var/www/html/roll-documentation/area51/$(VERSION)
-REDHAT.ROOT     = $(PWD)/../../
-ROCKSROOT       = ../../../../..
+REDHAT.ROOT     = $(CURDIR)/../../
+
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
+
 
 default: $(NAME).spec ../$(NAME)-$(VERSION).tar.gz
 

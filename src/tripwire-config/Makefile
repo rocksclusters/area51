@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.16 2009/05/01 19:06:46 mjk Exp $
+# $Id: Makefile,v 1.17 2010/08/25 19:38:07 bruno Exp $
 #
 # Moved over from contrib area into the area51 roll.  This move makes the
 # Make and Spec files simpler. (Rolls still Rock)
@@ -57,6 +57,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.17  2010/08/25 19:38:07  bruno
+# touch up the area51 roll for the 5.4 beta
+#
 # Revision 1.16  2009/05/01 19:06:46  mjk
 # chimi con queso
 #
@@ -114,9 +117,8 @@
 # *** empty log message ***
 
 
-PKGROOT		= /opt/tripwire
-REDHAT.ROOT     = $(PWD)/../../
-ROCKSROOT       = ../../../../..
+REDHAT.ROOT     = $(CURDIR)/../../
+
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
 

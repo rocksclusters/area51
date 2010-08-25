@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.13 2009/05/01 19:06:46 mjk Exp $
+# $Id: Makefile,v 1.14 2010/08/25 19:38:06 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.14  2010/08/25 19:38:06  bruno
+# touch up the area51 roll for the 5.4 beta
+#
 # Revision 1.13  2009/05/01 19:06:46  mjk
 # chimi con queso
 #
@@ -94,9 +97,8 @@
 # angry hacker cheese wants to speak
 #
 
+REDHAT.ROOT     = $(CURDIR)/../../
 
-REDHAT.ROOT     = $(PWD)/../../
-ROCKSROOT       = ../../../../..
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
 
