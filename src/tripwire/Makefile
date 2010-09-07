@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.18 2010/08/25 19:38:06 bruno Exp $
+# $Id: Makefile,v 1.19 2010/09/07 23:52:45 bruno Exp $
 #
 # Moved over from contrib area into the area51 roll.  This move makes the
 # Make and Spec files simpler. (Rolls still Rock)
@@ -7,9 +7,9 @@
 # 
 # 				Rocks(r)
 # 		         www.rocksclusters.org
-# 		       version 5.2 (Chimichanga)
+# 		         version 5.4 (Maverick)
 # 
-# Copyright (c) 2000 - 2009 The Regents of the University of California.
+# Copyright (c) 2000 - 2010 The Regents of the University of California.
 # All rights reserved.	
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -57,6 +57,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.19  2010/09/07 23:52:45  bruno
+# star power for gb
+#
 # Revision 1.18  2010/08/25 19:38:06  bruno
 # touch up the area51 roll for the 5.4 beta
 #

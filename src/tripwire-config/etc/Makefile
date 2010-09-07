@@ -1,4 +1,7 @@
 # $Log: Makefile,v $
+# Revision 1.14  2010/09/07 23:52:46  bruno
+# star power for gb
+#
 # Revision 1.13  2009/05/01 19:06:46  mjk
 # chimi con queso
 #
@@ -74,9 +77,9 @@
 #
 #				Rocks(r)
 #		         www.rocksclusters.org
-#		       version 5.2 (Chimichanga)
+#		         version 5.4 (Maverick)
 #
-#Copyright (c) 2000 - 2009 The Regents of the University of California.
+#Copyright (c) 2000 - 2010 The Regents of the University of California.
 #All rights reserved.	
 #
 #Redistribution and use in source and binary forms, with or without
