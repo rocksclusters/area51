@@ -1,10 +1,18 @@
+
 <!--
-$Id: index.sgml,v 1.5 2011/02/11 20:03:31 mjk Exp $
+$Id: index.sgml,v 1.6 2011/02/14 22:14:15 mjk Exp $
 
 @Copyright@
 @Copyright@
 
 $Log: index.sgml,v $
+Revision 1.6  2011/02/14 22:14:15  mjk
+- Build Env
+  - ROLLNAME defaults to ROLL
+  - Fixes for docbook
+- All userguides build again
+- All userguides are now NOARCH rpms
+
 Revision 1.5  2011/02/11 20:03:31  mjk
 builds again
 
@@ -30,7 +38,7 @@ Revision 1.1  2006/09/14 23:54:35  mjk
 <book>
 <bookinfo>
 
-	<title> Area51 Roll: Users Guide </title>
+	<title> &roll-area51; Users Guide </title>
 
 	<subtitle>
 		<inlinemediaobject>
@@ -40,7 +48,7 @@ Revision 1.1  2006/09/14 23:54:35  mjk
 		</inlinemediaobject>
 	</subtitle>
 
-        <edition>Version &document-version;</edition>
+        <edition>&document-version;</edition>
         <pubdate>&document-pubdate;</pubdate>
         <copyright id="copyright" xreflabel="copyright">
                 <year>&document-year;</year>
@@ -53,7 +61,7 @@ Revision 1.1  2006/09/14 23:54:35  mjk
 
         <legalnotice>
                 <para>
-                This document is subject to the Rocks License 
+                This document is subject to the &rocks; License 
                 (see <xref linkend="rocks-copyright">).
                 </para>
         </legalnotice>
