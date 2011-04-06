@@ -594,9 +594,10 @@ uninstall-info: uninstall-info-recursive
         #./install/install.sh
 
 install-data-hook:
-	prefix="$(prefix)" sysconfdir="$(sysconfdir)" \
-        path_to_vi="$(path_to_vi)" path_to_sendmail="$(path_to_sendmail)" \
-        ./install/install.sh -n -s " " -l " "
+	( export prefix="$(prefix)" sysconfdir="$(sysconfdir)"; \
+          export path_to_vi="$(path_to_vi)"; \
+	  export path_to_sendmail="$(path_to_sendmail)"; \
+          sh ./install/install.sh -n -s " " -l " ")
 # ROCKS end
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
