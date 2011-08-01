@@ -597,7 +597,7 @@ install-data-hook:
 	( export prefix="$(prefix)"; export sysconfdir="$(sysconfdir)"; \
           export path_to_vi="$(path_to_vi)"; \
 	  export path_to_sendmail="$(path_to_sendmail)"; \
-          sh ./install/install.sh -n -s " " -l " " < /dev/tty)
+          sh ./install/install.sh -n -s " " -l " " )
 # ROCKS end
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
