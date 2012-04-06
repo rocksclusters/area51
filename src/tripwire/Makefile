@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.20 2011/07/23 02:30:13 phil Exp $
+# $Id: Makefile,v 1.21 2012/04/06 16:05:05 phil Exp $
 #
 # Moved over from contrib area into the area51 roll.  This move makes the
 # Make and Spec files simpler. (Rolls still Rock)
@@ -57,6 +57,10 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.21  2012/04/06 16:05:05  phil
+# Fix up two files so that an RPM build check doesn't honk.
+# It's cleaner, too.
+#
 # Revision 1.20  2011/07/23 02:30:13  phil
 # Viper Copyright
 #
@@ -142,7 +146,8 @@ install::
 		cd $(NAME)-$(VERSION)-src ;				\
 		$(MAKE) prefix=$(ROOT)/$(PKGROOT) install;		\
 	)
-
+	find $(ROOT) -name twpol.txt -exec /bin/sed -i "s%$(ROOT)%%g" {} \;
+	find $(ROOT) -name twcfg.txt -exec /bin/sed -i "s%$(ROOT)%%g" {} \;
 
 clean::
 	rm -rf $(NAME)-$(VERSION)-src
