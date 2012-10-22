@@ -1,0 +1,39 @@
+#$Log: sadmin,v $
+#Revision 1.1  2012/10/22 23:46:36  phil
+#Add centos6 specific versions of some of the policy files
+#
+#Revision 1.1  2012/08/22 00:12:08  root
+#Initial revision
+#
+#Revision 1.2  2008/04/15 23:21:22  bruno
+#update policy files
+#
+#Revision 1.1  2004/04/20 00:35:13  mjk
+#more pmp'n tripwire
+#
+#Revision 1.1  2004/04/07 21:20:28  phil
+#
+#Tripwire policy parts
+#
+# System Administration Programs # #
+
+  /sbin/chkconfig                      -> $(SEC_CRIT) ;
+  /sbin/fuser                          -> $(SEC_CRIT) ;
+  /sbin/halt                           -> $(SEC_CRIT) ;
+  /sbin/init                           -> $(SEC_CRIT) ;
+  #/sbin/initlog                        -> $(SEC_CRIT) ; # removed by rocks 6.1
+  /sbin/killall5                       -> $(SEC_CRIT) ;
+  /sbin/modprobe                       -> $(SEC_CRIT) ; # added by rocks 6.1
+  #/sbin/rpc.lockd                      -> $(SEC_CRIT) ; # removed by rocks 6.1
+  /sbin/rpc.statd                      -> $(SEC_CRIT) ;
+  /sbin/service                        -> $(SEC_CRIT) ;
+  /sbin/setsysfont                     -> $(SEC_CRIT) ;
+  /sbin/shutdown                       -> $(SEC_CRIT) ;
+  /sbin/sulogin                        -> $(SEC_CRIT) ;
+  /sbin/swapon                         -> $(SEC_CRIT) ;
+  #/sbin/syslogd                        -> $(SEC_CRIT) ; # removed by rocks 6.1
+  /sbin/rsyslogd                        -> $(SEC_CRIT) ; # added by rocks 6.1
+  /sbin/unix_chkpwd                    -> $(SEC_CRIT) ;
+  /bin/pwd                             -> $(SEC_CRIT) ;
+  /bin/uname                           -> $(SEC_CRIT) ;
+

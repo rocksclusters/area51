@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.20 2012/05/06 05:48:05 phil Exp $
+# $Id: Makefile,v 1.21 2012/10/22 23:46:36 phil Exp $
 #
 # Moved over from contrib area into the area51 roll.  This move makes the
 # Make and Spec files simpler. (Rolls still Rock)
@@ -58,6 +58,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.21  2012/10/22 23:46:36  phil
+# Add centos6 specific versions of some of the policy files
+#
 # Revision 1.20  2012/05/06 05:48:05  phil
 # Copyright Storm for Mamba
 #
@@ -161,7 +164,8 @@ install::
 	mkdir -p $(ROOT)/etc/rc.d/rocksconfig.d
 	install -m 700 tripwire.cron $(ROOT)/etc/cron.daily/tripwire
 	install -m 755 post-99-tripwire $(ROOT)/etc/rc.d/rocksconfig.d/
-	cd etc && find . -type f | cpio -pduv $(ROOT)/$(PKGROOT)/etc/
+	( cd etc && find . -type f -not -path '*twpol-parts-version$(VERSION.MAJOR)*'| cpio -pduv $(ROOT)/$(PKGROOT)/etc/)
+	- ( cd etc/twpol-parts-version$(VERSION.MAJOR) && find . -type f | cpio -pduv $(ROOT)/$(PKGROOT)/etc/twpol-parts )
 	find $(ROOT)/$(PKGROOT)/etc/ -name "CVS"  -type d | xargs rm -rf 
 	find $(ROOT)/$(PKGROOT)/etc/ -name "*.in" -type f | xargs rm -f 
 

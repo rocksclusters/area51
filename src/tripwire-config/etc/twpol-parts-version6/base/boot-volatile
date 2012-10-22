@@ -1,0 +1,111 @@
+  # $Log: boot-volatile,v $
+  # Revision 1.1  2012/10/22 23:46:36  phil
+  # Add centos6 specific versions of some of the policy files
+  #
+  # Revision 1.1  2012/08/22 00:53:24  root
+  # Initial revision
+  #
+  # Revision 1.2  2005/10/14 05:48:43  phil
+  # Clean up the checked for files to silence tripwire a bit
+  #
+  # Revision 1.1  2004/04/20 00:35:13  mjk
+  # more pmp'n tripwire
+  #
+  # Revision 1.2  2004/04/18 21:05:25  phil
+  # Try to make tripwire a little quieter on /var/log
+  # for logrotate
+  #
+  # Revision 1.1  2004/04/08 05:27:40  phil
+  # Build twpol.txt file from component parts
+  #
+  # These files change every time the system boots ##
+  ##################################################
+
+     !/var/run/ftp.pids-all ; # Comes and goes on reboot.
+     !/root/.enlightenment ;
+     /dev/log                          -> $(SEC_CONFIG) ;
+     #/dev/cua0                         -> $(SEC_CONFIG) ;
+     # /dev/printer                      -> $(SEC_CONFIG) ; # Uncomment if you have a printer device
+     /dev/console                      -> $(SEC_CONFIG) -u ; # User ID may change on console login/logout.
+     #/dev/tty2                         -> $(SEC_CONFIG) ; # tty devices
+     /dev/tty3                         -> $(SEC_CONFIG) ; # are extremely
+     /dev/tty4                         -> $(SEC_CONFIG) ; # variable
+     /dev/tty5                         -> $(SEC_CONFIG) ;
+     /dev/tty6                         -> $(SEC_CONFIG) ;
+     /dev/urandom                      -> $(SEC_CONFIG) ;
+     #/dev/initctl                      -> $(SEC_CONFIG) ; # removed by rocks 6.1
+     /sbin/initctl                      -> $(SEC_CONFIG) ; # added by rocks 6.1
+     # /var/lock/subsys                  -> $(SEC_CONFIG) ;
+     #/var/lock/subsys/random           -> $(SEC_CONFIG) ;
+     /var/lock/subsys/network          -> $(SEC_CONFIG) ;
+     # /var/lock/subsys/portmap          -> $(SEC_CONFIG) ; # removed by rocks 6.1
+     # /var/lock/subsys/nfsfs            -> $(SEC_CONFIG) ; #Uncomment when this file exists
+     # /var/lock/subsys/nfslock          -> $(SEC_CONFIG) ; # removed by rocks 6.1
+     # /var/lock/subsys/syslog           -> $(SEC_CONFIG) ; # removed by rocks 6.1
+     /var/lock/subsys/rsyslog           -> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/atd              -> $(SEC_CONFIG) ;
+     /var/lock/subsys/crond            -> $(SEC_CONFIG) ;
+     # /var/lock/subsys/inet             -> $(SEC_CONFIG) ; #Uncomment when this file exists
+     # /var/lock/subsys/named            -> $(SEC_CONFIG) ; #Uncomment when this file exists
+     #/var/lock/subsys/lpd              -> $(SEC_CONFIG) ;
+     # /var/lock/subsys/nfs              -> $(SEC_CONFIG) ; #Uncomment when this file exists
+     # /var/lock/subsys/sendmail         -> $(SEC_CONFIG) ;
+     # /var/lock/subsys/gpm              -> $(SEC_CONFIG) ;
+     /var/lock/subsys/httpd            -> $(SEC_CONFIG) ;
+     # /var/lock/subsys/sound            -> $(SEC_CONFIG) ; #Uncomment when this file exists
+     # /var/lock/subsys/smb              -> $(SEC_CONFIG) ; #Uncomment when this file exists
+     # /var/lock/subsys/anacron          -> $(SEC_CONFIG) ;
+     /var/lock/subsys/autofs           -> $(SEC_CONFIG) ;
+     # /var/lock/subsys/canna            -> $(SEC_CONFIG) ;
+     # /var/lock/subsys/firewall         -> $(SEC_CONFIG) ;
+     #/var/lock/subsys/identd           -> $(SEC_CONFIG) ;
+     #/var/lock/subsys/jserver          -> $(SEC_CONFIG) ;
+     #/var/lock/subsys/keytable         -> $(SEC_CONFIG) ;
+     #/var/lock/subsys/kudzu            -> $(SEC_CONFIG) ;
+     /var/lock/subsys/netfs            -> $(SEC_CONFIG) ;
+     #/var/lock/subsys/reconfig         -> $(SEC_CONFIG) ;
+     #/var/lock/subsys/xfs              -> $(SEC_CONFIG) ; # removed by rocks 6.1
+     /var/lock/subsys/xinetd           -> $(SEC_CONFIG) ;
+# START added for rocks 6.1 
+     /var/lock/subsys/acpid           		-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/dhcpd           		-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/fcoe           		-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/foundation-mysql 		-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/ganglia-restore-rrds 	-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/gmetad 			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/gmond 			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/haldaemon 		-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/ipmi 			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/iptables 			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/libvirt-guests		-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/lldpad			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/local			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/lvm2-monitor		-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/mcelogd			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/messagebus		-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/named			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/nfsd  			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/postfix  			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/pppoe-server		-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/rpcbind			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/rpc.idmapd		-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/rpc.mountd		-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/rpc.rquotad		-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/rpc.statd			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/sec_channel_server	-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/sgemaster			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/snmpd			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/sshd			-> $(SEC_CONFIG) ;  # added by rocks 6.1
+     /var/lock/subsys/tracker-server		-> $(SEC_CONFIG) ;  # added by rocks 6.1
+# END added for rocks 6.1 
+     # /var/lock/subsys/ypbind           -> $(SEC_CONFIG) ;
+     /var/run                          -> $(SEC_CONFIG) ; # daemon PIDs
+     #/var/spool/lpd/lpd.lock           -> $(SEC_CONFIG) ; #Uncomment when this file exists
+     /var/log                          -> $(Dynamic) ;
+     # /etc/issue.net                    -> $(SEC_CONFIG) -i ; # Inode number changes
+     # /etc/ioctl.save                   -> $(SEC_CONFIG) ;
+     # /etc/issue                        -> $(SEC_CONFIG) ;
+     /etc/.pwd.lock                    -> $(SEC_CONFIG) ;
+     /etc/mtab                         -> $(SEC_CONFIG) -i ; # Inode number changes on any mount/unmount
+     /lib/modules                      -> $(SEC_CONFIG) ;
+     # /lib/modules/preferred            -> $(SEC_CONFIG) ; #Uncomment when this file exists
