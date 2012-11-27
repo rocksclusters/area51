@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.21 2012/10/22 23:46:36 phil Exp $
+# $Id: Makefile,v 1.22 2012/11/27 00:47:59 phil Exp $
 #
 # Moved over from contrib area into the area51 roll.  This move makes the
 # Make and Spec files simpler. (Rolls still Rock)
@@ -7,10 +7,10 @@
 # 
 # 				Rocks(r)
 # 		         www.rocksclusters.org
-# 		         version 5.5 (Mamba)
-# 		         version 6.0 (Mamba)
+# 		         version 5.6 (Emerald Boa)
+# 		         version 6.1 (Emerald Boa)
 # 
-# Copyright (c) 2000 - 2012 The Regents of the University of California.
+# Copyright (c) 2000 - 2013 The Regents of the University of California.
 # All rights reserved.	
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -58,6 +58,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.22  2012/11/27 00:47:59  phil
+# Copyright Storm for Emerald Boa
+#
 # Revision 1.21  2012/10/22 23:46:36  phil
 # Add centos6 specific versions of some of the policy files
 #
