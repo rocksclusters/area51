@@ -31,7 +31,7 @@ insert into wp_links (link_name, link_description, link_url, link_category)
 	2);
 </file>
 
-cat /tmp/tripwire-wp.sql | /opt/rocks/bin/mysql -u wordpress wordpress
+cat /tmp/tripwire-wp.sql | /opt/rocks/mysql/bin/mysql -u wordpress wordpress
 rm -f /tmp/tripwire-wp.sql
 mkdir -p /var/www/html/tripwire
 <file name="/var/www/html/tripwire/index.html" owner="root.apache">
