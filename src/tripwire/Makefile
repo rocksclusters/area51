@@ -134,13 +134,13 @@ include Rules.mk
 
 
 build:
-	$(TAR) jfxv $(NAME)-$(VERSION)-src.tar.bz2
+	$(TAR) $(TAROPTS) $(NAME)-$(VERSION)$(TARBALL_POSTFIX)
 	(								\
 		cd patch-files ;					\
 		find . -type f | grep -v CVS | cpio -pduv .. ;		\
 	)
 	( 								\
-		cd $(NAME)-$(VERSION)-src ;				\
+		cd $(SUBDIR) ;				\
 		./configure --prefix=$(PKGROOT);			\
 		$(MAKE);						\
 	)
@@ -149,12 +149,13 @@ install::
 	mkdir -p $(ROOT)/$(PKGROOT)
 	mkdir -p $(ROOT)/$(PKGROOT)/db/report
 	(								\
-		cd $(NAME)-$(VERSION)-src ;				\
+		cd $(SUBDIR) ;				\
 		$(MAKE) prefix=$(ROOT)/$(PKGROOT) install;		\
 	)
 	find $(ROOT) -name twpol.txt -exec /bin/sed -i "s%$(ROOT)%%g" {} \;
 	find $(ROOT) -name twcfg.txt -exec /bin/sed -i "s%$(ROOT)%%g" {} \;
+	find $(ROOT) -name '*key' -exec /bin/rm {} \;
 
 clean::
-	rm -rf $(NAME)-$(VERSION)-src
+	rm -rf $(SUBDIR)
 

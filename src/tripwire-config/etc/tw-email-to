@@ -25,13 +25,12 @@
 #
 
 # See if we can get the attribute without error
-/opt/rocks/bin/rocks report host attr localhost | grep tripwire_mail 2>1 > \
+/opt/rocks/bin/rocks report host attr localhost attr=tripwire_mail 2>1 > \
 	/dev/null 
 retcode=$?
 
 if [ $retcode -eq 0 ]; then 
-	/opt/rocks/bin/rocks report host attr localhost | grep tripwire_mail \
-		| awk -F: '{print $2}'
+	/opt/rocks/bin/rocks report host attr localhost attr=tripwire_mail
 else
 	echo "root@localhost"  
 fi
